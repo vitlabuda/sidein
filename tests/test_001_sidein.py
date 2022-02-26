@@ -1,6 +1,6 @@
-# SPDX-License-Identifier: BSD-3-Clause
-#
-# Copyright (c) 2021 Vít Labuda. All rights reserved.
+#!/bin/false
+
+# Copyright (c) 2022 Vít Labuda. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 # following conditions are met:
@@ -19,6 +19,17 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
+import sys
+import os
+import os.path
+if "SIDEIN_TESTS_AUTOPATH" in os.environ:
+    __TESTS_DIR = os.path.dirname(os.path.realpath(__file__))
+    __MODULE_DIR = os.path.realpath(os.path.join(__TESTS_DIR, ".."))
+    if __TESTS_DIR not in sys.path:
+        sys.path.insert(0, __TESTS_DIR)
+    if __MODULE_DIR not in sys.path:
+        sys.path.insert(0, __MODULE_DIR)
 
 from sidein.Sidein import Sidein
 from sidein.nsmgr.NamespaceManagerInterface import NamespaceManagerInterface

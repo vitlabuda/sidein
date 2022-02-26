@@ -1,6 +1,6 @@
-# SPDX-License-Identifier: BSD-3-Clause
-#
-# Copyright (c) 2021 Vít Labuda. All rights reserved.
+#!/bin/false
+
+# Copyright (c) 2022 Vít Labuda. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 # following conditions are met:
@@ -20,6 +20,17 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
+import sys
+import os
+import os.path
+if "SIDEIN_TESTS_AUTOPATH" in os.environ:
+    __TESTS_DIR = os.path.dirname(os.path.realpath(__file__))
+    __MODULE_DIR = os.path.realpath(os.path.join(__TESTS_DIR, ".."))
+    if __TESTS_DIR not in sys.path:
+        sys.path.insert(0, __TESTS_DIR)
+    if __MODULE_DIR not in sys.path:
+        sys.path.insert(0, __MODULE_DIR)
+
 from typing import Any
 import pytest
 import asyncio
@@ -34,7 +45,19 @@ from sidein.ns.exc.decoration.InvalidDecoratorError import InvalidDecoratorError
 from sidein.ns.exc.decoration.InvalidDecoratorExtractorError import InvalidDecoratorExtractorError
 
 
-dependency_names = ("", "com.example.dependency", "dependency with spaces", "⬛️⬜️")
+dependency_names = (
+    "",
+    "   ",
+    "\r\n",
+    "com.example.dependency",
+    "dependency with spaces",
+    "řeřicha",
+    "Příliš žluťoučký kůň úpěl ďábelské ódy.",
+    "Příliš žluťoučký kůň úpěl ďábelské ódy. ",
+    "Příliš žluťoučký kůň úpěl ďábelské ódy.\n",
+    "🤍🤎",
+    "⬛️⬜️",
+)
 failing_dependency_names = ("fail 1", "fail 2", "fail 3")
 unexpectedly_failing_dependency_names = ("unexpected fail 1", "unexpected fail 2")
 decorator_dependency_names = ("decorator 1", "decorator 2")

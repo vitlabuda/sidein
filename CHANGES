@@ -1,0 +1,8 @@
+[1.0.0 @ 2021-09-25]
+- Initial release
+
+[1.0.1 @ 2022-02-26]
+- Updated the license's copyright year to 2022
+- Added a '/bin/false' shebang to all relevant files
+- Upgraded the automatic tests a bit
+- Added CHANGES

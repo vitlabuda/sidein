@@ -1,6 +1,6 @@
-# SPDX-License-Identifier: BSD-3-Clause
-#
-# Copyright (c) 2021 Vít Labuda. All rights reserved.
+#!/bin/false
+
+# Copyright (c) 2022 Vít Labuda. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 # following conditions are met:
@@ -20,6 +20,17 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
+import sys
+import os
+import os.path
+if "SIDEIN_TESTS_AUTOPATH" in os.environ:
+    __TESTS_DIR = os.path.dirname(os.path.realpath(__file__))
+    __MODULE_DIR = os.path.realpath(os.path.join(__TESTS_DIR, ".."))
+    if __TESTS_DIR not in sys.path:
+        sys.path.insert(0, __TESTS_DIR)
+    if __MODULE_DIR not in sys.path:
+        sys.path.insert(0, __MODULE_DIR)
+
 import pytest
 from sidein.Sidein import Sidein
 from sidein.providers.simplecontainer.GlobalSimpleContainer import GlobalSimpleContainer
@@ -28,7 +39,19 @@ from sidein.providers.simplecontainer.exc.DependencyInSCNotFoundException import
 from sidein.providers.simplecontainer.exc.DependencyInSCExistsException import DependencyInSCExistsException
 
 
-dependency_names = ("", "com.example.container_dependency", "container dependency with spaces", "🕐🕑🕒🕓")
+dependency_names = (
+    "",
+    "   ",
+    "\r\n",
+    "com.example.container_dependency",
+    "container dependency with spaces",
+    "řeřicha",
+    "Příliš žluťoučký kůň úpěl ďábelské ódy.",
+    "Příliš žluťoučký kůň úpěl ďábelské ódy. ",
+    "Příliš žluťoučký kůň úpěl ďábelské ódy.\n",
+    "🤍🤎",
+    "🕐🕑🕒🕓",
+)
 
 
 def make_dummy_dep(dep_name: str) -> str:

@@ -1,6 +1,6 @@
-# SPDX-License-Identifier: BSD-3-Clause
-#
-# Copyright (c) 2021 Vít Labuda. All rights reserved.
+#!/bin/false
+
+# Copyright (c) 2022 Vít Labuda. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 # following conditions are met:
