@@ -23,6 +23,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # Sidein
 **Sidein** is a flexible, object-oriented Python dependency injector which hides the boring stuff away and leaves the important things up to you.
 
+*NOTE: Some links in this README may not work if the file is not viewed through 
+[GitHub](https://github.com/vitlabuda/sidein/blob/main/README.md).*
+
 
 ## Features and characteristics
 * supports **Python 3.9 and above**

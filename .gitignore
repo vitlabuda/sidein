@@ -1,4 +1,6 @@
 .idea
 __pycache__
 .pytest_cache
+dist
+sidein.egg-info
 TODO.txt

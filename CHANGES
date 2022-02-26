@@ -6,3 +6,6 @@
 - Added a '/bin/false' shebang to all relevant files
 - Upgraded the automatic tests a bit
 - Added CHANGES
+
+[1.0.2 @ 2022-02-26]
+- Added setup.py, performed related changes
