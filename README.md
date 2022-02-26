@@ -47,6 +47,13 @@ It might work in older Python 3 versions, but nothing is guaranteed.
 No dependencies *(other than the Python standard library)* are required.
 
 
+## Installation
+Sidein can be installed from [PyPI](https://pypi.org/project/sidein/) using `pip`:
+```shell
+python3 -m pip install --upgrade sidein
+```
+
+
 ## Usage
 The [examples](examples) will give you an overview of what this library can do.
 

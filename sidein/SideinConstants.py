@@ -29,7 +29,7 @@ class SideinConstants:
     This class contains the public constants exported by the Sidein library.
     """
 
-    LIBRARY_VERSION: str = "1.0.2"
+    LIBRARY_VERSION: str = "1.0.3"
 
     def __init__(self):
         raise NotImplementedError("{} is not supposed to be instantiated!".format(SideinConstants.__qualname__))
