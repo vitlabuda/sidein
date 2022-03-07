@@ -1,0 +1,10 @@
+{
+  "ignore": false,
+  "display_name": null,
+  "description": null,
+  "programming_language": "Python",
+  "priority": 1000,
+  "category_id": "libraries",
+  "category_display_name": "Libraries",
+  "category_priority": 900
+}
